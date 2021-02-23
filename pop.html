@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>StarLight</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <!-- <link href="css/raa-mobile.css" rel="stylesheet"> -->
+  <style>
+      .pop-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+.fixed_black_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #050505;
+    z-index: -1;
+}
+
+.pop-inner {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 500px;
+    height: 486px;
+    background-color: #000;
+    transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    overflow-y: auto;
+    border-top-left-radius: 4px;
+    -o-border-top-left-radius: 4px;
+    -moz-border-top-left-radius: 4px;
+    -ms-border-top-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -o-border-top-right-radius: 4px;
+    -moz-border-top-right-radius: 4px;
+    -ms-border-top-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px;
+    width: 15px;
+    z-index: 1;
+    background: #cfb172;
+}
+
+.pop-header {
+    color: #cfb172;
+    font-weight: 800;
+    background: #000;
+}
+
+.pop-header h2 {
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pop-body {
+    padding: 5px 20px 0 20px;
+}
+
+.custom-table {
+    margin-bottom: 0;
+    border-left: 1px solid transparent !important;
+}
+
+.custom-table {
+    border: 1px solid transparent;
+}
+
+.custom-table > thead > tr > th {
+    color: #fff;
+}
+
+.custom-table>thead>tr>th {
+    border-bottom-width: 0;
+    border-top: 0px solid #737373;
+    color: #e4d6b4;
+}
+
+.table-bordered>thead>tr>th {
+    border-top: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+    border-right: 1px solid transparent !important;
+}
+
+table>thead:first-child>tr>th {
+    Font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.table-bordered>thead>tr>th:first-child {
+    border-right: 1px solid #4d4d4d !important;
+}
+
+.custom-table > tbody > tr > td > p {
+    margin-bottom: 0;
+}
+
+.custom-table > tbody > tr > td:last-child {
+    border-right: 1px solid transparent;
+}
+
+.custom-table > tbody > tr > td {
+    width: 25%;
+    color: #fff;
+    border-left: 1px solid transparent;
+}
+
+.custom-table > tbody > tr > td:first-child {
+    border-left: 0px solid #737373;
+}
+
+.table-bordered>tbody>tr>td {
+    border: 1px solid #4d4d4d;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid #4d4d4d;
+}
+
+.custom-table > tbody > tr > td > p {
+    margin-bottom: 0;
+}
+
+.note {
+    margin-bottom: 0;
+    padding: 15px;
+}
+
+.btnn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #000;
+    background-color: #cfb172;
+    font-weight: bold;
+    border: 1px solid #cfb172;
+    transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+}
+
+  </style>
+</head>
+
+<body>
+    <!--modal-->
+    <div class="pop-wrapper">
+            <div class="pop-inner">
+                 <a href="javaScript:Void(0);" class="close-btn">
+                   <img src="img/close.png" alt="close button" class="img-responsive" />
+                 </a>
+                 <div class="pop-header text-center">
+                     <h2>Avail Volume Discount</h2>
+                 </div>
+                 <div class="pop-body">
+                    <table class="table table-bordered custom-table">
+                      <thead>
+                         <tr>
+                            <th class="text-center">
+                               USD ($)
+                            </th>
+                            <th class="text-center">
+                               DISC (%)
+                            </th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr>
+                            <td class="text-center"><p>0 - 9999</p></td>
+                            <td class="text-center"><p>0.00%</p></td>                         
+                         </tr>
+                         <tr>
+                             <td class="text-center"><p>10,000 - 15,000</p></td>                                                    
+                             <td class="text-center"><p>1.00%</p></td>                         
+                          </tr>
+                          <tr>
+                             <td class="text-center"><p>15,001 - 20,000</p></td>                                                    
+                             <td class="text-center"><p>1.25%</p></td>                         
+                          </tr>
+                          <tr>
+                             <td class="text-center"><p>20,001 - 25,000</p></td>                          
+                             <td class="text-center"><p>1.50%</td>                         
+                          </tr>                      
+                          <tr>
+                             <td class="text-center"><p>25,001 - 35,000</p></td>                                                    
+                             <td class="text-center"><p>1.75%</p></td>                         
+                          </tr>
+                          <tr>
+                             <td class="text-center"><p>35,001 - 45,000</p></td>                                                    
+                             <td class="text-center"><p>2.00%</p></td>                         
+                          </tr>
+                          <tr>
+                             <td class="text-center"><p>45,001 - 55,000</p></td>                          
+                             <td class="text-center"><p>2.25%</p></td>                         
+                          </tr>
+                          <tr>
+                             <td colspan="2" style="border-bottom: 0;">
+                                 <p class="text-center note">Note: This Discount(%) is only on total amount.</p>
+                                 <p class="text-center">
+                                     <button type="button" class="btnn">Click to continue</button>
+                                 </p>
+                             </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                 </div>
+            </div>
+        </div>
+     <!--modal-->
+   
+     <!--black background-->
+     <div class="fixed_black_background">
+     </div>
+     <!--black background-->
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>   
+  <script type="text/javascript" src="js/script.js"></script>   
+  <script>
+
+    // $('#bs-example-navbar-collapse-1').carousel({
+    //     interval: 5000
+    //   });
+
+    // var $video = document.getElementById('stvideo');
+    // $video.pause();
+
+    $('.close-btn, .btnn').on('click', function(e){
+      e.preventDefault();
+      $(this).parents('.pop-wrapper').fadeOut();
+      $video.play();
+    });
+
+
+    
+
+  </script>
+
+<style>
+  /* .pop-wrapper {
+    display: none;
+  } */
+</style>
+
+</body>
+
+</html>
